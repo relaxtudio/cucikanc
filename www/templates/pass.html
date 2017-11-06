@@ -1,0 +1,27 @@
+<ion-view view-title="Change Password">
+	<ion-content>
+		<form name="changePass">
+			<div class="form-order">
+				<div class="pesanan">
+					<div class="form-content">
+						<label>
+							<span>Password Lama</span>
+							<input ng-model="pass.oldPass" type="password" placeholder="Masukkan password lama" ng-blur="checkPass()" required>
+						</label>
+						<label ng-show="enableChange">
+							<span>Password Baru</span>
+							<input ng-model="pass.newPass" type="password" placeholder="Masukkan password baru" required>
+						</label>
+						<label ng-show="enableChange">
+							<span>Retype Password</span>
+							<input ng-model="pass.cekPass" type="password" placeholder="Retype password" required>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-order" ng-show="enableChange">
+				<button ng-click="changePassword(changePass)" class="user">Submit</button>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>

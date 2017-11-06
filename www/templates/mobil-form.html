@@ -1,0 +1,46 @@
+<ion-view view-title="Tambah Daftar Mobil">
+<ion-pane>
+	<ion-content>
+		<div class="form-order">
+			<form name="mobilForm">
+				<div class="pesanan">
+					<div class="form-content">
+						<div class="form-title">
+							Form Data Mobil
+						</div>
+						<div>
+							<span>Brand</span>
+							<input ng-hide="mobil.brand" ng-model="filter.brand" ng-change="searchMobilOff(filter.brand)">
+							<div ng-show="mobil.brand" ng-click="changeBrand()" class="nobold">{{mobil.brand}}</div>
+						</div>
+						<item-brand-mobil ng-repeat="mobil in search.ResultBrand"></item-brand-mobil>
+						<label>
+							<span>Jenis</span>
+							<input ng-model="mobil.jenis" required="required">
+						</label>
+						<label>
+							<span>Tahun</span>
+							<input ng-model="mobil.tahun" type="number" required="required">
+						</label>
+						<label>
+							<span>Warna</span>
+							<input ng-model="mobil.warna" required="required">
+						</label>
+						<label>
+							<span>Nomor Polisi</span>
+							<input ng-model="mobil.nopol" required="required">
+						</label>
+						<label>
+							<span>Pemilik</span>
+							<input ng-model="mobil.pemilik" required="required">
+						</label>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="form-order">
+			<button class="user" ng-click="submitMobil(mobilForm)">Submit</button>
+		</div>
+	</ion-content>
+</ion-pane>
+</ion-view>

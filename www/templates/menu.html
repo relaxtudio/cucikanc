@@ -1,0 +1,53 @@
+<ion-side-menus enable-menu-with-back-views="true">
+    <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+        <ion-nav-back-button ng-hide="home">
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left" class="side-bg">
+        <ion-header-bar class="bar-stable user-info">
+            <div class="user-description">
+                <div class="info nama">{{global.user.nama}}</div>
+                <div class="info">{{global.user.alamat}}</div>
+                <div class="info kota">{{global.user.kota_kab}}</div>
+            </div>
+        </ion-header-bar>
+        <ion-content class="user-menu">
+            <ion-list>
+                <ion-item nav-clear menu-toggle class="item-icon-left" ng-click="setMenu(1)" ng-class="activeMenu == 1 ? 'selected' : 0" href="#/app/details" tabindex="-1">
+                        <i class="icon ion-ios-home"></i>
+                    Home
+                </ion-item>
+                <ion-item nav-clear menu-close class="item-icon-left" ng-click="setMenu(2)" ng-class="activeMenu == 2 ? 'selected' : 0" href="#/app/order" tabindex="-1">
+                    <i class="icon ion-paper-airplane"></i>
+                    Order Baru
+                </ion-item>
+                <ion-item nav-clear menu-close class="item-icon-left" ng-click="setMenu(3)" ng-class="activeMenu == 3 ? 'selected' : 0" href="#/app/mobil" tabindex="-1">
+                    <i class="icon ion-android-car"></i>
+                    List Mobil
+                </ion-item>
+                <ion-item nav-clear menu-close class="item-icon-left" ng-click="setMenu(4)" ng-class="activeMenu == 4 ? 'selected' : 0" href="#/app/profile" tabindex="-1">
+                    <i class="icon ion-android-person"></i>
+                    Profile
+                </ion-item>
+                <ion-item nav-clear menu-close class="item-icon-left" ng-click="logout()" tabindex="-1">
+                    <i class="icon ion-android-exit"></i>
+                    Logout
+                </ion-item>
+            </ion-list>
+        </ion-content>
+        <!-- <ion-content>
+            <ion-item ng-click="logout()">
+                Logout
+            </ion-item> -->
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

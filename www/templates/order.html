@@ -1,0 +1,84 @@
+<ion-view view-title="Buat Order Baru">
+<ion-pane>
+	<ion-content>
+		<form name="orderForm">
+			<div class="form-order">
+				<div class="user">
+					<div class="form-title" ng-click="togglePemesanan = !togglePemesanan">
+						Informasi Pelanggan
+							<i ng-class="togglePemesanan ? 'icon ion-arrow-up-b' : 'icon ion-arrow-down-b'"></i>
+					</div>
+					<div class="form-content" ng-show="togglePemesanan">
+						<label class="content">
+							<span>Pemilik</span>
+							<input ng-model="trans.pemilik" required="required">
+						</label>
+						<label>
+							<span>Email</span>
+							<input ng-model="trans.email">
+						</label>
+						<label>
+							<span>Telepon</span>
+							<input ng-model="trans.telepon" required="required">
+						</label>
+						<label>
+							<span>Lokasi</span>
+							<textarea maxlength="100" ng-model="trans.lokasi" required="required"></textarea>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-order">
+				<div class="pesanan">
+					<div class="form-title">
+						Info Pemesanan
+					</div>
+					<div class="form-content">
+						<label>
+							<span>Mobil</span>
+							<select ng-model="trans.mobil" ng-change="changeMobil()" required="required">
+								<option value="">Please select</option>
+								<option ng-repeat="mobil in listMobil" value="{{mobil.id}}">{{mobil.brand}} {{mobil.jenis}}</option>
+							</select>
+						</label>
+						<label>
+							<span>Tanggal</span>
+							<input ng-model="trans.tanggal" type="date" required="required">
+						</label>
+						<label>
+							<span>Jam (Min: 8:30 Max: 16:30)</span>
+							<span style="font-size: 10px;">*Pilihan waktu pelayanan minimal adalah h+8 jam dari waktu saat ini.</span>
+							<input ng-model="trans.jam" type="time" min="08:30:00" max="16:30:00" step="7200" required="required">
+						</label>
+						<label>
+							<span>Paket</span>
+							<select ng-model="trans.paket" ng-change="changePaket(); calcTotal()" required="required">
+								<option value="">Please select</option>
+								<option ng-repeat="paket in listPaket" value="{{paket.id_paket}}">{{paket.nama_paket}}</option>
+							</select>
+						</label>
+						<label>
+							<span>Pembayaran</span>
+							<select ng-model="trans.pembayaran">
+								<option value="">Please select</option>
+								<option ng-repeat="bayar in listPembayaran" value="{{bayar.id_pembayaran}}">{{bayar.tipe_pembayaran}}</option>
+							</select>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-order">
+				<div class="pesanan">
+					<div class="form-title">
+						Total
+						<p>IDR {{trans.total | number}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="form-order">
+				<button ng-click="checkOrder(orderForm)" class="user">Submit</button>
+			</div>
+		</form>
+	</ion-content>
+</ion-pane>
+</ion-view>

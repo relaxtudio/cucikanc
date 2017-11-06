@@ -1,0 +1,36 @@
+<ion-pane class="home">
+	<ion-content>
+	<!-- <div ng-show="state.loginLoading">
+		Wait...
+	</div> -->
+	<!-- <div ng-show="!state.loginLoading"> -->
+	<div>
+		<form novalidate name="loginForm" ng-submit="login(loginForm)">
+			<div class="list list-inset">
+				<label class="item item-input item-floating-label">
+					<span class="input-label">Username</span>
+					<input ng-model="user.username" type="text" placeholder="Username" required>
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label">Password</span>
+					<input ng-model="user.password" type="password" placeholder="Password" required>
+				</label>
+				<button type="submit" class="button button-block button-positive">
+					Submit
+				</button>
+			</div>
+		</form>
+		<!-- <div class="list list-inset">
+			<div class="login-param">
+				Lupa password?	
+				<a>Klik disini</a>
+			</div>
+		</div> -->
+		<div class="list list-inset">
+			<div class="login-param">	
+				<a href="#/blank">Kembali ke halaman awal</a>
+			</div>
+		</div>
+	</div>
+	</ion-content>
+</ion-pane>

@@ -1,0 +1,40 @@
+<div class="item-order" ng-class="order.status == 'Cancelled' ? 'item-order-canceled' : ''">
+	<table style="width: 100%;" ng-click="detail = !detail">
+		<tr>
+			<td style="color: #1F363F; text-align: left; font-size: 15px; font-weight: bold;">{{order.mobil}}</td>
+			<td rowspan="2" style="color: #366375: text-align: left; font-size: 10px; vertical-align: middle;">{{order.tanggal}}</td>
+			<!-- <td rowspan="2" style="color: ">{{order.status}}</td> -->
+			<td style="color: #693335; text-align: right; font-size: 20px;">{{currency}} {{order.harga | number}}</td>
+		</tr>
+		<tr>
+			<td style="color: #366375; text-align: left; font-size: 10px;">{{order.invoice}}</td>
+			<td style="color: #366375; text-align: right !important; font-size: 10px;">{{order.paket}} - <span>{{order.status}}</span></td>
+		</tr>
+	</table>
+	<table ng-show="detail" style="width: 100%; margin-top: 10px;">
+		<tr>
+			<td class="detail label">Atas Nama</td>
+			<td class="detail value">{{order.pemilik}}</td>
+		</tr>
+		<tr>
+			<td class="detail label">Lokasi Tujuan</td>
+			<td class="detail value">{{order.lokasi}}</td>
+		</tr>
+		<tr>
+			<td class="detail label">Jam</td>
+			<td class="detail value">{{order.jam}}</td>
+		</tr>
+		<tr>
+			<td class="detail label">{{order.tipe_pembayaran}}</td>
+			<td class="detail value">{{order.keterangan_pembayaran}}</td>
+		</tr>
+		<tr ng-hide="order.status == 'Cancelled' || order.status == 'Completed'">
+			<td style="font-size: 9px; line-height: 9px;">*Cancel Order maksimal 2 jam sebelum pengerjaan</td>
+			<td colspan="2" style="text-align: right; padding: -2px;">
+				<button class="search-order cancel" ng-click="cancelOrder(order)">
+					Cancel Order
+				</button>
+			</td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,72 @@
+<ion-pane class="home">
+	<ion-content>
+		<div class="form-signup">
+			<form name="daftar">
+				<div class="list list-inset" ng-hide="showProfile">
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Username</span>
+						<input ng-blur="checkUserExist()" ng-model="user.username" type="text" placeholder="Masukkan Username" required>
+					</label>
+					<span ng-show="userAlert" style="color: #8E3C3E;">username sudah dipakai!!</span>
+					<label class="item item-input item-floating-label" ng-show="showPass">
+						<span class="input-label">Password</span>
+						<input ng-model="user.password" type="password" placeholder="Password" required>
+					</label>
+					<label class="item item-input item-floating-label" ng-show="showPass">
+						<span class="input-label">Retype Password</span>
+						<input ng-model="user.cekpassword" type="password" placeholder="Retype Password" required>
+					</label>
+					<span ng-show="passAlert" style="color: #8E3C3E;">password tidak cocok!!</span>
+					<a class="button button-block button-positive" ng-show="showPass" ng-click="checkPass()">
+						Next
+						<i class="icon-right ion-chevron-right"></i>
+					</a>
+				</div>
+				<div class="list list-inset" ng-show="showProfile">
+					<a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="reset()">Back</a>
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Nama</span>
+						<input ng-model="user.nama" type="text" placeholder="Nama" required>
+					</label>
+					<label class="item item-input item-select">
+						<div class="input-label">
+							Jenis Kelamin
+						</div>
+						<select ng-model="user.gender" required>
+							<option value="pria">Pria</option>
+							<option value="wanita">Wanita</option>
+						</select>
+					</label>
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Alamat</span>
+						<input ng-model="user.alamat" type="text" placeholder="Alamat" required>
+					</label>
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Kecamatan</span>
+						<input ng-model="user.kecamatan" type="text" placeholder="Kecamatan" required>
+					</label>
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Kota/Kabupaten</span>
+						<input ng-model="user.kota_kab" type="text" placeholder="Kota/Kabupaten" required>
+					</label>
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Telepon</span>
+						<input ng-model="user.telepon" type="tel" placeholder="Telepon" required>
+					</label>
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Email</span>
+						<input ng-model="user.email" type="email" placeholder="Email" required>
+					</label>
+					<button type="submit" class="button button-block button-positive" ng-click="submitForm(daftar)">
+						Submit
+					</button>
+				</div>
+			</form>
+			<div class="list list-inset" ng-hide="showProfile">
+				<div class="login-param">
+					<a href="#/blank" class="">Kembali ke halaman depan</a>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-pane>

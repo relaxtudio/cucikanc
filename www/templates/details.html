@@ -1,0 +1,44 @@
+<ion-view view-title="Home">
+	<ion-pane>
+		<ion-content>
+			<div class="list-order">
+				<div class="search-order">
+					<div>List Order</div>
+					<div class="filter-order">
+						<span>Mobil</span>
+						<select ng-model="filter.mobil" type="text">
+							<option value=""> - Semua - </option>
+							<option ng-repeat="mobil in listMobil" value="{{mobil.id}}">{{mobil.brand}} {{mobil.jenis}}</option>
+						</select>
+					</div>
+					<div class="filter-order">
+						<span>Status</span>
+						<!-- <input ng-model="filter.status" type="text"> -->
+						<select ng-model="filter.status">
+							<option value=""> - Semua - </option>
+							<option value="Order">Order</option>
+							<option value="Completed">Completed</option>
+							<option value="Cancelled">Cancelled</option>
+						</select>
+					</div>
+				</div>
+				<button class="search-order block" ng-click="searchOrder();">
+					Cari Order
+				</button>
+				<item-order ng-repeat="order in showOrder"></item-order>
+				<table style="width: 100%;">
+					<tr>
+						<td style="text-align: right;">
+							<button class="search-order page-direction" ng-click="prevPage()">Prev</button>
+							<span class="search-order page-direction">{{curPage + 1 | number}}</span>
+							<button class="search-order page-direction" ng-click="nextPage()">Next</button>
+						</td>
+					</tr>
+				</table>
+				<a class="search-order block" href="#/app/order">
+					Buat Order Baru
+				</a>
+			</div>
+		</ion-content>
+	</ion-pane>
+</ion-view>

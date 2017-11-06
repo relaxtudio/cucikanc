@@ -1,0 +1,38 @@
+<div class="item-order">
+	<div ng-click="mobilDetail = !mobilDetail">
+		<table style="width: 100%;">
+			<tr>
+				<td>					
+					{{mobil.brand}} {{mobil.jenis}}
+				</td>
+				<td style="text-align: right; color: #693335;">
+					{{mobil.nopol}}
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div ng-show="mobilDetail">
+		<table style="width: 100%; margin-top: 10px;">
+			<tr>
+				<td class="detail label">Pemilik</td>
+				<td class="detail value">{{mobil.pemilik}}</td>
+			</tr>
+			<tr>
+				<td class="detail label">Tahun</td>
+				<td class="detail value">{{mobil.tahun}}</td>
+			</tr>
+			<tr>
+				<td class="detail label">Warna</td>
+				<td class="detail value">Putih</td>
+			</tr>
+			<tr>
+			<td style="font-size: 9px; line-height: 9px;"></td>
+			<td colspan="2" style="text-align: right; padding: -2px;">
+				<button class="search-order cancel" ng-click="deleteMobil(mobil)">
+					Hapus Mobil
+				</button>
+			</td>
+		</tr>
+		</table>
+	</div>
+</div>

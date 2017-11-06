@@ -1,0 +1,55 @@
+<ion-view view-title="Profile">
+<ion-pane>
+	<ion-content>
+	<form name="profileForm">
+			<div class="form-order">
+				<div class="user">
+					<div class="form-title" ng-click="togglePemesanan = !togglePemesanan">
+						Profil
+							<i ng-class="togglePemesanan ? 'icon ion-arrow-up-b' : 'icon ion-arrow-down-b'"></i>
+					</div>
+					<div class="form-content">
+						<label class="content">
+							<span>Nama</span>
+							<input ng-model="userProfile.nama" required="required">
+						</label>
+						<label>
+							<span>Jenis Kelamin</span>
+							<select ng-model="userProfile.gender" required="required">
+								<option value="pria">Pria</option>
+								<option value="wanita">Wanita</option>
+							</select>
+						</label>
+						<label>
+							<span>Email</span>
+							<input ng-model="userProfile.email" required="required">
+						</label>
+						<label>
+							<span>Telepon</span>
+							<input ng-model="userProfile.telepon" required="required">
+						</label>
+						<label>
+							<span>Alamat</span>
+							<textarea maxlength="100" ng-model="userProfile.alamat" required="required"></textarea>
+						</label>
+						<label>
+							<span>Kecamatan</span>
+							<input ng-model="userProfile.kecamatan" required="required">
+						</label>
+						<label>
+							<span>Kota/Kabupaten</span>
+							<input ng-model="userProfile.kota_kab" required="required">
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-order">
+				<button ng-click="updateProfile(profileForm)" class="user">Update Profil</button>
+			</div>
+			<div class="form-order">
+				<button ng-click="gotoPass()" class="user pass">Ganti Password</button>
+			</div>
+	</form>
+	</ion-content>
+</ion-pane>
+</ion-view>
